@@ -1,5 +1,8 @@
 # Brain Anatomy & Regions - A Modular Atlas
 
+<img width="1009" height="1109" alt="image" src="https://github.com/user-attachments/assets/81610ec7-4ab5-481a-b9f0-38d4c3f834fb" />
+
+
 An interactive, single-page web atlas of the human brain. It pairs an interactive **BioDigital Human** 3D model with a structured neuroanatomy reference table covering 20 core brain regions.
 
 **Live site:** https://derrickmirindi.github.io/brain-3d-viewer/
@@ -56,6 +59,3 @@ The site is deployed with **GitHub Pages** from the `main` branch (root folder).
 
 By Derrick Mirindi, David Sinkhonde and Frederic Mirindi.
 
-## License
-
-Educational use. The 3D model is provided by the BioDigital Human platform and is subject to BioDigital's terms.
