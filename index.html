@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brain Anatomy &amp; Regions &mdash; A Modular Atlas</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root{--cols:12;--bl:8px;--lh:24px;--gutter:24px;--margin:72px;--pad:96px;--maxw:1296px;--paper:#ffffff;--ink:#111315;--ink-soft:#5b6066;--accent:#e4002b;--g-col:rgba(228,0,43,.075);--g-edge:rgba(228,0,43,.40);--g-base:rgba(0,150,140,.34);--g-base-min:rgba(0,150,140,.12);}
+*{box-sizing:border-box;margin:0}
+html,body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:var(--lh);-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.spread{position:relative;width:100%;border-top:2px solid var(--ink)}
+.wrap{position:relative;max-width:var(--maxw);margin:0 auto;padding:var(--pad) var(--margin)}
+.grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);column-gap:var(--gutter);row-gap:var(--lh)}
+.band{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;column-gap:var(--gutter);row-gap:var(--lh);align-items:start}
+.kicker{font-family:"Space Mono",monospace;font-size:12px;line-height:var(--lh);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.folio{font-family:"Space Mono",monospace;font-size:12px;line-height:var(--lh);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.masthead{font-weight:800;font-size:104px;line-height:96px;letter-spacing:-.02em}
+.h2b{font-weight:700;font-size:44px;line-height:48px;letter-spacing:-.01em}
+.numeral{font-weight:800;font-size:120px;line-height:120px;letter-spacing:-.03em;color:var(--accent)}
+.lede{font-size:20px;line-height:var(--lh);font-weight:400}
+.body{font-size:16px;line-height:var(--lh);color:var(--ink)}
+.rule{border:0;border-top:2px solid var(--ink);height:0;margin:0}
+.viewer{position:relative;width:100%;height:648px;border:2px solid var(--ink)}
+.viewer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.controls{display:flex;flex-wrap:wrap;gap:var(--bl)}
+.controls button{background:var(--ink);color:#fff;border:0;font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;cursor:pointer}
+.controls button:hover{background:var(--accent)}
+table.atlas{width:100%;border-collapse:collapse;font-size:14px;line-height:var(--lh)}
+table.atlas th,table.atlas td{text-align:left;vertical-align:top;padding:8px 16px 16px 0;border-top:1px solid var(--ink)}
+table.atlas thead th{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border-top:2px solid var(--ink);padding-top:8px}
+table.atlas td.ent{font-weight:700;color:var(--ink);width:20%}
+table.atlas tbody tr:hover td{background:#faf4f5}
+table.atlas a{color:var(--accent);text-decoration:none;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+table.atlas a:hover{text-decoration:underline}
+footer.byline{border-top:2px solid var(--ink)}
+footer.byline .credit{font-weight:600;font-size:18px;line-height:var(--lh)}
+@media(max-width:820px){:root{--margin:24px;--pad:48px}.masthead{font-size:56px;line-height:56px}.h2b{font-size:30px;line-height:32px}.numeral{font-size:72px;line-height:72px}table.atlas{font-size:12px}table.atlas td.ent{width:auto}}
+</style>
+</head>
+<body>
+<section class="spread">
+<div class="wrap">
+<div class="grid">
+<div class="band">
+<p class="kicker" style="grid-column:2 / 8">Interactive Atlas / Vol. 02</p>
+<p class="folio" style="grid-column:8 / 12;text-align:right">Section 01 &mdash; 3D Model</p>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<h1 class="masthead" style="grid-column:2 / 11">The Brain in Three Dimensions</h1>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<p class="lede" style="grid-column:2 / 7">An interactive BioDigital Human model of the human brain&mdash;cerebral hemispheres, lobes, limbic system, basal ganglia, diencephalon, brainstem, cerebellum, and ventricular system. Rotate, zoom, dissect, and identify structures directly in 3D.</p>
+<p class="numeral" style="grid-column:9 / 12;text-align:right">3D</p>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<div class="viewer" style="grid-column:2 / 12">
+<iframe id="biodigital" title="Brain | BioDigital Human Platform" src="https://human.biodigital.com/viewer/?be=4IX9&ui-info=false&ui-search=false&ui-undo=true&ui-fullscreen=true&ui-nav=true&ui-tools=true&ui-help=true&ui-chapter-list=false&ui-label-list=true&ui-anatomy-descriptions=false&ui-tutorial=false&ui-loader=circle&ui-whiteboard=false&ui-layers=false&ui-anatomy-labels=true&auto-load=true&disable-scroll=true&load-rotate=10&dk=0cee566e934542c2920e47214e317818fd61ae4e&bypass-analytics=true" allowfullscreen></iframe>
+</div>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<div class="controls" style="grid-column:2 / 8">
+<button id="reload">Reload Model</button>
+<button id="fs">Fullscreen</button>
+</div>
+<p class="folio" style="grid-column:8 / 12;text-align:right">Model BE=4IX9 &middot; BioDigital Human</p>
+</div>
+</div>
+</div>
+</section>
+<section class="spread">
+<div class="wrap">
+<div class="grid">
+<div class="band">
+<p class="kicker" style="grid-column:2 / 8">Reference / Neuroanatomy</p>
+<p class="folio" style="grid-column:8 / 12;text-align:right">Section 02 &mdash; Regions</p>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<h2 class="h2b" style="grid-column:2 / 10">Brain Regions: Structure &amp; Function Reference</h2>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<p class="lede" style="grid-column:2 / 7">Twenty core regions of the human brain &mdash; each with its major subparts and core functional role, with links to supporting references.</p>
+<p class="numeral" style="grid-column:9 / 12;text-align:right">20</p>
+</div>
+<div class="band" style="margin-top:var(--lh)">
+<div style="grid-column:2 / 12">
+<table class="atlas">
+<thead><tr><th>Main Part</th><th>Major Subparts</th><th>Core Role</th><th>Refs</th></tr></thead>
+<tbody>
+<tr><td class="ent">Cerebrum</td><td>Right and left cerebral hemispheres; cerebral cortex; underlying white matter</td><td>Highest-order cognition, perception, voluntary action, language, memory, and executive control.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Frontal lobe</td><td>Prefrontal cortex, premotor cortex, primary motor cortex, Broca-related dominant frontal regions</td><td>Planning, decision-making, motor initiation, attention control, personality, and speech production.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Parietal lobe</td><td>Primary somatosensory cortex, superior and inferior parietal regions</td><td>Somatic sensation, spatial processing, multisensory integration, and body orientation.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Temporal lobe</td><td>Superior, middle, inferior temporal gyri; medial temporal structures</td><td>Auditory processing, language comprehension, memory formation, and object recognition.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Occipital lobe</td><td>Primary visual cortex and visual association cortex</td><td>Visual perception and higher-order visual interpretation.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Insula</td><td>Insular cortex</td><td>Interoception, pain integration, taste, autonomic-emotional integration, and salience processing.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Limbic system</td><td>Hippocampus, amygdala, cingulate regions, parahippocampal areas</td><td>Emotion, memory consolidation, motivation, and stress-related behavioral regulation.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Basal ganglia</td><td>Caudate nucleus, putamen, globus pallidus; often discussed with related nuclei</td><td>Action selection, movement modulation, habit learning, and reward-related processing.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Diencephalon</td><td>Thalamus, hypothalamus, epithalamus, subthalamus</td><td>Sensory relay, endocrine-autonomic regulation, circadian biology, and homeostasis.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Thalamus</td><td>Multiple relay nuclei; medial and lateral geniculate bodies</td><td>Major relay hub for sensory, motor, and cortical signaling.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Hypothalamus</td><td>Multiple autonomic and endocrine nuclei; pituitary connections</td><td>Temperature, hunger, thirst, circadian rhythms, endocrine control, and autonomic homeostasis.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Pineal region / Epithalamus</td><td>Pineal gland, habenular region</td><td>Melatonin-related circadian signaling and limbic-modulatory functions.</td><td><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Brainstem</td><td>Midbrain, pons, medulla oblongata</td><td>Consciousness support, cranial nerve functions, cardiorespiratory control, and ascending/descending pathway conduction.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Midbrain</td><td>Tectum, tegmentum, cerebral peduncles, substantia nigra</td><td>Eye movement control, motor modulation, auditory/visual reflexes, and dopaminergic functions.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Pons</td><td>Pontine nuclei, tegmentum, cranial nerve nuclei</td><td>Relay between cerebrum and cerebellum, facial sensation/movement, and respiratory modulation.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Medulla oblongata</td><td>Pyramids, olives, autonomic nuclei</td><td>Vital autonomic control including breathing, heart rate, swallowing, and protective reflexes.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Cerebellum</td><td>Hemispheres, vermis, deep cerebellar nuclei</td><td>Coordination, balance, motor timing, error correction, and motor learning.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Ventricular system</td><td>Lateral ventricles, third ventricle, cerebral aqueduct, fourth ventricle</td><td>Cerebrospinal fluid circulation and mechanical-metabolic support of the CNS.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">White matter systems</td><td>Corpus callosum, internal capsule, corona radiata, association/commissural/projection fibers</td><td>Long-range communication between cortical and subcortical regions.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+<tr><td class="ent">Cranial nerve nuclei / origins</td><td>Mostly in the brainstem, with higher-order cortical control</td><td>Sensory and motor functions of the head, neck, and selected visceral structures.</td><td><a href="https://www.youtube.com/watch?v=D1zkVBHPh5c" target="_blank">YouTube</a><a href="https://en.wikipedia.org/wiki/List_of_regions_in_the_human_brain" target="_blank">Wiki</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="byline">
+<div class="wrap">
+<div class="grid">
+<div class="band">
+<p class="kicker" style="grid-column:2 / 8">Authors</p>
+</div>
+<div class="band" style="margin-top:var(--bl)">
+<p class="credit" style="grid-column:2 / 9">By Derrick Mirindi, David Sinkhonde and Frederic Mirindi</p>
+<p class="folio" style="grid-column:9 / 12;text-align:right">Swiss Modular Grid &middot; 2026</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.getElementById('reload').addEventListener('click',function(){var f=document.getElementById('biodigital');f.src=f.src;});
+document.getElementById('fs').addEventListener('click',function(){var f=document.getElementById('biodigital');if(f.requestFullscreen){f.requestFullscreen();}});
+</script>
+</body>
+</html>
